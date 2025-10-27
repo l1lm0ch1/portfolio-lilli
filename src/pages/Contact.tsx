@@ -92,7 +92,7 @@ export default function Contact() {
 
                     <div className="flex items-center justify-center animate-fadeIn" style={{animationDelay: '0.2s'}}>
                         <img
-                            src={ ``}
+                            src={ '/images/ProfilePictureSQUARE.png' }
                             alt="Lilli Ölsinger"
                             className="rounded-2xl border border-zinc-800 shadow-lg w-full max-w-sm object-cover"
                         />

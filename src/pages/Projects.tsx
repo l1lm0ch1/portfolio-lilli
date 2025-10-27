@@ -29,6 +29,30 @@ const projectsData = [
         tags: ['Level Design', 'VRChat', 'Unity'],
     },
     {
+        id: 'cozy-place',
+        title: 'My cozy place',
+        category: '3D Modelling',
+        description: {
+            de: 'Meine Vorstellung eines "Cozy place".',
+            en: 'My imagination of a "cozy place".'
+        },
+        year: '2024',
+        color: 'from-orange-500 to-red-500',
+        tags: ['Autodesk maya', '3D Modelling', 'Imagination'],
+    },
+    {
+        id: 'toon-architecture',
+        title: 'Toon Architecture',
+        category: '3D Modelling',
+        description: {
+            de: 'Pokémon Center als Toon Architecture',
+            en: 'Pokémon Center as toon architecture',
+        },
+        year: '2024',
+        color: 'from-orange-500 to-red-500',
+        tags: ['Autodesk maya', '3D Modelling', 'Toon architecture'],
+    },
+    {
         id: 'divine-meltdown',
         title: 'Divine Meltdown Chpt. 1',
         category: 'Game',
@@ -90,7 +114,7 @@ const projectsData = [
     },
     {
         id: 'virtual-damage',
-        title: 'virtual-damage',
+        title: 'Virtual Damage',
         category: 'Game',
         description: {
             de: 'Aktuelles Semesterprojekt - WIP',
@@ -102,7 +126,7 @@ const projectsData = [
         tags: ['VR', 'Unity', 'C#', 'Hand tracking'],
     },
     {
-        id: 'virtual-damage',
+        id: 'bachelor-thesis',
         title: 'Approaches to Enhancing Immersion in VR via physical Object tracking',
         category: 'Game',
         description: {
@@ -130,7 +154,7 @@ const projectsData = [
 
 export default function Projects() {
     const {language, t} = useTranslation();
-    const [filter, setFilter] = useState<'all' | 'VR' | 'Game'>('all');
+    const [filter, setFilter] = useState<'all' | 'VR' | 'Game' | '3D Modelling'>('all');
 
     const filteredProjects = filter === 'all'
         ? projectsData
@@ -157,6 +181,7 @@ export default function Projects() {
                             {value: 'all', label: t('projects.all')},
                             {value: 'VR', label: t('projects.vr')},
                             {value: 'Game', label: t('projects.games')},
+                            {value: '3D Modelling', label: t('projects.modelling')},
                         ].map((option) => (
                             <button
                                 key={option.value}
@@ -200,8 +225,8 @@ export default function Projects() {
 
                                 <div
                                     className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                                    <div className="text-6xl opacity-50">🎮</div>
-                                    {/* Replace with: <img src={`/assets/projects/${project.id}.png`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" /> */}
+                                    {/*<div className="text-6xl opacity-50">🎮</div> */}
+                                    <img src={`/images/${project.id}.png`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
 
                                 <div className="mb-4">

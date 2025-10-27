@@ -19,9 +19,9 @@ const projectsData = {
         tags: ['3D Modeling', 'VRChat', 'VRoid Studio', 'Unity', 'VRChat SDK'],
         tech: ['Blender', 'Unity', 'VRChat SDK'],
         images: [
-            '/assets/projects/vr-avatar-1.png',
-            '/assets/projects/vr-avatar-2.png',
-            '/assets/projects/vr-avatar-3.png',
+            '/images/vr-avatar-1.png',
+            '/images/vr-avatar-2.png',
+            '/images/vr-avatar-3.png',
         ],
     },
     'vr-world': {
@@ -40,9 +40,52 @@ const projectsData = {
         tags: ['Level Design', 'VRChat', 'Unity', 'VRChat SDK', 'Lighting'],
         tech: ['Unity', 'VRChat SDK', 'ProBuilder'],
         images: [
-            '/assets/projects/vr-world-1.png',
-            '/assets/projects/vr-world-2.png',
-            '/assets/projects/vr-world-3.png',
+            '/images/vr-world-1.png',
+            '/images/vr-world-2.png',
+            '/images/vr-world-3.png',
+        ],
+    },
+    'cozy-place': {
+        title: 'My cozy place',
+        category: 'Modelling',
+        year: '2024',
+        color: 'from-blue-500 to-cyan-500',
+        description: {
+            de: 'Meine Vorstellung eines "Cozy place".',
+            en: 'My imagination of a "cozy place".',
+        },
+        longDescription: {
+            de: 'Nach meinem ersten Avatar wollte ich eine eigene Welt erschaffen. Diese VR-Welt kombiniert Level Design, Lighting und interaktive Elemente, um eine immersive Erfahrung zu schaffen. Ich habe Unity eingesetzt und mich intensiv mit dem  VRChat SDK auseinandergesetzt.',
+            en: 'After my first avatar, I wanted to create my own world. This VR world combines level design, lighting, and interactive elements to create an immersive experience. I used Unity and worked intensively with the VRChat SDK.',
+        },
+        tags: ['Autodesk Maya', '3D Modelling', 'Imagination', 'Cozy place', 'Lighting'],
+        tech: ['Autodesk Maya'],
+        images: [
+            '/images/cozy-place-1.jpg',
+            '/images/cozy-place-2.jpg',
+            '/images/cozy-place-3.jpg',
+            '/images/cozy-place-4.jpg',
+        ],
+    },
+    'toon-architecture': {
+        title: 'Toon Architecture',
+        category: 'Modelling',
+        year: '2024',
+        color: 'from-blue-500 to-cyan-500',
+        description: {
+            de: 'Pokémon Center als Toon Architecture',
+            en: 'Pokémon Center as toon architecture',
+        },
+        longDescription: {
+            de: 'Nach meinem ersten Avatar wollte ich eine eigene Welt erschaffen. Diese VR-Welt kombiniert Level Design, Lighting und interaktive Elemente, um eine immersive Erfahrung zu schaffen. Ich habe Unity eingesetzt und mich intensiv mit dem  VRChat SDK auseinandergesetzt.',
+            en: 'After my first avatar, I wanted to create my own world. This VR world combines level design, lighting, and interactive elements to create an immersive experience. I used Unity and worked intensively with the VRChat SDK.',
+        },
+        tags: ['Autodesk Maya', '3D Modelling', 'Toon Architecture', 'Lighting'],
+        tech: ['Autodesk Maya'],
+        images: [
+            '/images/toon-arch-1.jpg',
+            '/images/toon-arch-2.png',
+            '/images/toon-arch-3.jpg',
         ],
     },
     'divine-meltdown': {
@@ -61,9 +104,9 @@ const projectsData = {
         tags: ['Unity', 'C#', 'Narrative Design', 'Sound Design', 'Puzzle'],
         tech: ['Unity', 'C#', 'Timeline', 'Cinemachine'],
         images: [
-            '/assets/projects/divine-meltdown-1.png',
-            '/assets/projects/divine-meltdown-2.png',
-            '/assets/projects/divine-meltdown-3.png',
+            '/images/divine-meltdown-1.png',
+            '/images/divine-meltdown-2.png',
+            '/images/divine-meltdown-3.png',
         ],
     },
     'shadow-runner': {
@@ -82,9 +125,9 @@ const projectsData = {
         tags: ['Construct 3', 'Platformer', 'Game Feel', '2D'],
         tech: ['Construct 3'],
         images: [
-            '/assets/projects/shadow-runner-1.png',
-            '/assets/projects/shadow-runner-2.png',
-            '/assets/projects/shadow-runner-3.png',
+            '/images/shadow-runner-1.png',
+            '/images/shadow-runner-2.png',
+            '/images/shadow-runner-3.png',
         ],
     },
     'last-symphony': {
@@ -103,9 +146,9 @@ const projectsData = {
         tags: ['Unity', 'Audio Design', 'Puzzle', 'C#', 'Music'],
         tech: ['Unity', 'C#', 'FMOD', 'Audio Programming'],
         images: [
-            '/assets/projects/last-symphony-1.png',
-            '/assets/projects/last-symphony-2.png',
-            '/assets/projects/last-symphony-3.png',
+            '/images/last-symphony-1.png',
+            '/images/last-symphony-2.png',
+            '/images/last-symphony-3.png',
         ],
     },
     'the-feast': {
@@ -124,9 +167,9 @@ const projectsData = {
         tags: ['Unity', 'Horror', 'Simulation', 'Sound Design', 'Atmosphere'],
         tech: ['Unity', 'C#', 'Post-Processing', 'Audio Middleware'],
         images: [
-            '/assets/projects/the-feast-1.png',
-            '/assets/projects/the-feast-2.png',
-            '/assets/projects/the-feast-3.png',
+            '/images/the-feast-1.png',
+            '/images/the-feast-2.png',
+            '/images/the-feast-3.png',
         ],
     },
     'petal-potions': {
@@ -145,9 +188,9 @@ const projectsData = {
         tags: ['VR', 'Unity', 'Hand Tracking', 'Physics', 'XR Interaction'],
         tech: ['Unity', 'XR Interaction Toolkit', 'Oculus SDK', 'C#'],
         images: [
-            '/images/pp_table.png',
-            '/assets/projects/petal-potions-2.png',
-            '/assets/projects/petal-potions-3.png',
+            '/images/petal-potions-1.png',
+            '/images/petal-potions-2.png',
+            '/images/petal-potions-3.png',
         ],
     },
     'virtual-damage': {
@@ -167,9 +210,9 @@ const projectsData = {
         tags: ['Bachelor Thesis', 'Unity', 'C#', 'Game Design', 'Research'],
         tech: ['Unity', 'C#', 'Advanced Systems', 'TBA'],
         images: [
-            '/assets/projects/virtual-damage-1.png',
-            '/assets/projects/virtual-damage-2.png',
-            '/assets/projects/virtual-damage-3.png',
+            '/images/virtual-damage-1.png',
+            '/images/virtual-damage-2.png',
+            '/images/virtual-damage-3.png',
         ],
     },
     'letters-to-myself': {
@@ -188,9 +231,9 @@ const projectsData = {
         tags: ['Serious Game', 'Unity', 'Mental Health', 'Narrative', 'Interactive Story'],
         tech: ['Unity', 'C#', 'Ink Narrative', 'UI Design'],
         images: [
-            '/assets/projects/letters-to-myself-1.png',
-            '/assets/projects/letters-to-myself-2.png',
-            '/assets/projects/letters-to-myself-3.png',
+            '/images/letters-to-myself-1.png',
+            '/images/letters-to-myself-2.png',
+            '/images/letters-to-myself-3.png',
         ],
     },
 };
@@ -265,8 +308,8 @@ export default function ProjectDetail() {
                 <div className="mb-12 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
                     <div className={`aspect-video bg-gradient-to-br ${project.color} rounded-2xl overflow-hidden relative group`}>
                         <div className="absolute inset-0 bg-zinc-900/50 flex items-center justify-center">
-                            <div className="text-8xl opacity-50">🎮</div>
-                            {/* Replace with: <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> */}
+                            {/* <div className="text-8xl opacity-50">🎮</div> */}
+                            <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
                     </div>
                 </div>
@@ -283,18 +326,19 @@ export default function ProjectDetail() {
                         </div>
 
                         {/* Gallery */}
-                        <div className="animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+                        <div className="animate-fadeIn" style={{animationDelay: '0.3s'}}>
                             <h2 className="text-3xl font-bold text-white mb-6">Gallery</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {[1, 2, 3, 4].map((num) => (
+                                {project.images.map((imgSrc, i) => (
                                     <div
-                                        key={num}
+                                        key={i}
                                         className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl overflow-hidden group cursor-pointer"
                                     >
-                                        <div className="w-full h-full flex items-center justify-center opacity-50">
-                                            <span className="text-4xl">🎮</span>
-                                        </div>
-                                        {/* Replace with: <img src={`/assets/projects/${id}-${num}.png`} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" /> */}
+                                        <img
+                                            src={imgSrc}
+                                            alt={`${project.title} ${i + 1}`}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
                                     </div>
                                 ))}
                             </div>
@@ -304,7 +348,9 @@ export default function ProjectDetail() {
                     {/* Sidebar */}
                     <div className="space-y-6">
                         {/* Tech-Stack */}
-                        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+                        <div
+                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn"
+                            style={{animationDelay: '0.2s'}}>
                             <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
                             <div className="space-y-2">
                                 {project.tech.map((tech, i) => (
