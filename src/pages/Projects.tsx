@@ -5,7 +5,8 @@ import {useTranslation} from '../i18n/translations';
 
 const projectsData = [
     {
-        id: 'vr-avatar',
+        id: 'vr-avatar.png',
+        page: 'vr-avatar',
         title: 'VR Chat Avatar',
         category: 'VR',
         description: {
@@ -17,7 +18,8 @@ const projectsData = [
         tags: ['3D Modeling', 'VRChat', 'Blender'],
     },
     {
-        id: 'vr-world',
+        id: 'vr-world.png',
+        page: 'vr-world',
         title: 'VR Chat World',
         category: 'VR',
         description: {
@@ -29,7 +31,8 @@ const projectsData = [
         tags: ['Level Design', 'VRChat', 'Unity'],
     },
     {
-        id: 'cozy-place',
+        id: 'cozy-place-1.jpg',
+        page: 'cozy-place',
         title: 'My cozy place',
         category: '3D Modelling',
         description: {
@@ -41,7 +44,8 @@ const projectsData = [
         tags: ['Autodesk maya', '3D Modelling', 'Imagination'],
     },
     {
-        id: 'toon-architecture',
+        id: 'toon-architecture.jpg',
+        page: 'toon-architecture',
         title: 'Toon Architecture',
         category: '3D Modelling',
         description: {
@@ -53,7 +57,21 @@ const projectsData = [
         tags: ['Autodesk maya', '3D Modelling', 'Toon architecture'],
     },
     {
-        id: 'divine-meltdown',
+        id: 'toy.jpg',
+        page: 'toy',
+        title: 'Toy',
+        category: '3D Modelling',
+        description: {
+            de: 'Fiktiver "My Singing Robot" als Spielzeug',
+            en: 'Fictional "My singing robot" as toy',
+        },
+        year: '2024',
+        color: 'from-orange-500 to-red-500',
+        tags: ['Autodesk maya', '3D Modelling', 'Toy'],
+    },
+    {
+        id: 'divine-meltdown.png',
+        page: 'divine-meltdown',
         title: 'Divine Meltdown Chpt. 1',
         category: 'Game',
         description: {
@@ -65,7 +83,8 @@ const projectsData = [
         tags: ['Unity', 'C#', 'Narrative Design'],
     },
     {
-        id: 'shadow-runner',
+        id: 'shadow-runner.png',
+        page: 'shadow-runner',
         title: 'Shadow Runner',
         category: 'Game',
         description: {
@@ -77,7 +96,8 @@ const projectsData = [
         tags: ['Construct 3', 'Platformer'],
     },
     {
-        id: 'last-symphony',
+        id: 'last-symphony.png',
+        page: 'last-symphony',
         title: 'The Last Symphony',
         category: 'Game',
         description: {
@@ -89,7 +109,21 @@ const projectsData = [
         tags: ['Unity', 'C#', 'RPG'],
     },
     {
-        id: 'the-feast',
+        id: 'blurred-thoughts.png',
+        page: 'blurred-thoughts',
+        title: 'Blurred Thoughts (GameJam)',
+        category: 'Game',
+        description: {
+            de: 'Puzzle-Adventure mit musikalischen Gameplay-Mechaniken',
+            en: 'Puzzle adventure with musical gameplay mechanics'
+        },
+        year: '2024',
+        color: 'from-indigo-500 to-purple-600',
+        tags: ['Unity', 'C#', 'Horror-Game'],
+    },
+    {
+        id: 'the-feast.png',
+        page: 'the-feast',
         title: 'The Feast',
         category: 'Game',
         description: {
@@ -101,7 +135,8 @@ const projectsData = [
         tags: ['Unreal Engine 5', 'Horror', 'Simulation'],
     },
     {
-        id: 'petal-potions',
+        id: 'petal-potions.png',
+        page: 'petal-potions',
         title: 'Petal Potions VR',
         category: 'VR',
         description: {
@@ -113,9 +148,10 @@ const projectsData = [
         tags: ['VR', 'Unity', 'Interactive Game'],
     },
     {
-        id: 'virtual-damage',
+        id: 'virtual-damage.png',
+        page: 'virtual-damage',
         title: 'Virtual Damage',
-        category: 'Game',
+        category: 'VR',
         description: {
             de: 'Aktuelles Semesterprojekt - WIP',
             en: 'Current Semester project - WIP'
@@ -127,8 +163,9 @@ const projectsData = [
     },
     {
         id: 'bachelor-thesis',
+        page: 'bachelor-thesis',
         title: 'Approaches to Enhancing Immersion in VR via physical Object tracking',
-        category: 'Game',
+        category: 'VR',
         description: {
             de: 'Mein aktuelles Bachelorarbeit-Projekt - Coming Soon!',
             en: 'My current bachelor thesis project - Coming Soon!'
@@ -139,7 +176,8 @@ const projectsData = [
         tags: ['Bachelor Thesis', 'Unity', 'C#'],
     },
     {
-        id: 'letters-to-myself',
+        id: 'letters-to-myself.png',
+        page: 'letters-to-myself',
         title: 'Letters To Myself',
         category: 'Game',
         description: {
@@ -147,6 +185,7 @@ const projectsData = [
             en: 'Meaningful serious game about mental health awareness'
         },
         year: '2025',
+        badge: {de: 'In Entwicklung', en: 'In Progress'},
         color: 'from-teal-400 to-blue-500',
         tags: ['Serious Game', 'Unity', 'C#', 'Mental Health'],
     },
@@ -165,7 +204,7 @@ export default function Projects() {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-16 text-center animate-fadeIn">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                    <h1 className="inline-block text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent leading-[1.02] antialiased py-2">
                         {t('projects.title')}
                     </h1>
                     <p className="text-zinc-400 text-xl max-w-2xl mx-auto mb-8">{t('projects.subtitle')}</p>
@@ -202,8 +241,8 @@ export default function Projects() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
                         <Link
-                            key={project.id}
-                            to={`/projects/${project.id}`}
+                            key={project.page}
+                            to={`/projects/${project.page}`}
                             className="group relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20 animate-fadeIn"
                             style={{animationDelay: `${0.1 + index * 0.05}s`}}
                         >
@@ -225,8 +264,7 @@ export default function Projects() {
 
                                 <div
                                     className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                                    {/*<div className="text-6xl opacity-50">🎮</div> */}
-                                    <img src={`/images/${project.id}.png`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    <img src={`/images/${project.id}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
 
                                 <div className="mb-4">

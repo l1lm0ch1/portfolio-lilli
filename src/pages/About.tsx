@@ -98,8 +98,7 @@ export default function About() {
                     <div className="space-y-6">
                         <div className="relative aspect-square bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl backdrop-blur-sm border border-red-500/30 flex items-center justify-center overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <div className="text-9xl z-10">🎮</div>
-                            {/* Replace with: <img src="/assets/profile/lilli.jpg" alt="Lilli Ölsinger" className="w-full h-full object-cover" /> */}
+                            <img src="/images/lilli-1.jpg" alt="Lilli Ölsinger" className="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>

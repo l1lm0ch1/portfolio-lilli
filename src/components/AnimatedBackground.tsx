@@ -62,5 +62,5 @@ export default function AnimatedBackground() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none opacity-30 z-0" />;
+    return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none opacity-100 z-0" />;
 }

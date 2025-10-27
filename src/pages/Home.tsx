@@ -63,7 +63,7 @@ export default function Home() {
                          style={{animationDelay: '0.5s'}}>
                         <Link
                             to="/about"
-                            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-red-500/50 group font-medium text-lg"
+                            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white rounded-xl transition-all duration-300 transform hover:scale-105 group font-medium text-lg"
                         >
                             {t('hero.cta')}
                             <ChevronRight className="group-hover:translate-x-1 transition-transform" size={24}/>

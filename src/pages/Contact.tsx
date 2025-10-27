@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, MapPin, Send } from 'lucide-react';
 import { useTranslation } from '../i18n/translations';
+import { FaDiscord } from "react-icons/fa";
 
 export default function Contact() {
     const { t } = useTranslation();
@@ -25,6 +26,13 @@ export default function Contact() {
             label: 'Email',
             color: 'from-red-500 to-pink-600',
             username: 'lilli.oelsinger@gmail.com'
+        },
+        {
+            label: "Discord",
+            username: "l1lm0ch1",
+            href: "https://discord.com/users/537949377466204172",
+            color: "from-indigo-500 to-purple-600",
+            icon: FaDiscord
         },
     ];
 

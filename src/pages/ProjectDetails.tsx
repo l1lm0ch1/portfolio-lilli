@@ -1,6 +1,21 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag } from 'lucide-react';
-import { useTranslation } from '../i18n/translations';
+import {useParams, Link, Navigate} from 'react-router-dom';
+import {ArrowLeft, Github, Calendar, Tag} from 'lucide-react';
+import {useTranslation} from '../i18n/translations';
+
+type Project = {
+    links?: Record<string, string>;
+    description?: Record<string, string>;
+    longDescription?: Record<string, string>;
+    tags?: string[];
+    tech?: string[];
+    images?: string[];
+    badge?: Record<string, string>;
+    title?: string;
+    category?: string;
+    year?: string;
+    color?: string;
+};
+
 
 const projectsData = {
     'vr-avatar': {
@@ -8,6 +23,7 @@ const projectsData = {
         category: 'VR / 3D Modeling',
         year: '2020',
         color: 'from-purple-500 to-pink-500',
+        links: {},
         description: {
             de: 'Mein erster Schritt in die 3D-Welt war die Erstellung eines Custom Avatars für VRChat. Hier habe ich gelernt, wie man mit VRoid Studio einfach Avatare für VRChat erstellen kann.',
             en: 'My first step into the 3D world was creating a custom avatar for VRChat. Here I learned how to create Avatars with VRoid studio for VRChat.',
@@ -29,6 +45,7 @@ const projectsData = {
         category: 'VR / Level Design',
         year: '2021',
         color: 'from-blue-500 to-cyan-500',
+        links: {},
         description: {
             de: 'Eine vollständige VR-Welt mit interaktiven Elementen und atmosphärischem Design.',
             en: 'A complete VR world with interactive elements and atmospheric design.',
@@ -50,6 +67,7 @@ const projectsData = {
         category: 'Modelling',
         year: '2024',
         color: 'from-blue-500 to-cyan-500',
+        links: {},
         description: {
             de: 'Meine Vorstellung eines "Cozy place".',
             en: 'My imagination of a "cozy place".',
@@ -72,13 +90,14 @@ const projectsData = {
         category: 'Modelling',
         year: '2024',
         color: 'from-blue-500 to-cyan-500',
+        links: {},
         description: {
             de: 'Pokémon Center als Toon Architecture',
             en: 'Pokémon Center as toon architecture',
         },
         longDescription: {
-            de: 'Nach meinem ersten Avatar wollte ich eine eigene Welt erschaffen. Diese VR-Welt kombiniert Level Design, Lighting und interaktive Elemente, um eine immersive Erfahrung zu schaffen. Ich habe Unity eingesetzt und mich intensiv mit dem  VRChat SDK auseinandergesetzt.',
-            en: 'After my first avatar, I wanted to create my own world. This VR world combines level design, lighting, and interactive elements to create an immersive experience. I used Unity and worked intensively with the VRChat SDK.',
+            de: 'Dieses Projekt entstand im Rahmen des 3D-Design-Unterrichts. Ziel war es, den Umgang mit 3D-Modelling-Software zu erlernen. Um kreativen Freiraum zu ermöglichen, wurde lediglich das Thema vorgegeben, das anschließend individuell umgesetzt wurde.',
+            en: 'This project was created as part of the 3D design course. The goal was to learn how to work with 3D modeling software. To provide creative freedom, only a theme was given which then had to be interpreted individually.',
         },
         tags: ['Autodesk Maya', '3D Modelling', 'Toon Architecture', 'Lighting'],
         tech: ['Autodesk Maya'],
@@ -88,18 +107,42 @@ const projectsData = {
             '/images/toon-arch-3.jpg',
         ],
     },
+    'toy': {
+        title: 'Toy',
+        category: 'Modelling',
+        year: '2024',
+        color: 'from-blue-500 to-cyan-500',
+        links: {},
+        description: {
+            de: 'Fiktiver "My Singing Robot" als Spielzeug',
+            en: 'Fictional "My singing robot" as toy',
+        },
+        longDescription: {
+            de: 'Dieses Projekt wurde ebenfalls im 3D-Design-Unterricht umgesetzt. Der Fokus lag auf der Anwendung von 3D-Modelling-Techniken und der kreativen Ausarbeitung eines vorgegebenen Themas.',
+            en: 'This project was also developed in the 3D design course. The focus was on applying 3D modeling techniques and creatively interpreting a specified theme.',
+        },
+        tags: ['Autodesk Maya', '3D Modelling', 'Toy', 'Lighting'],
+        tech: ['Autodesk Maya'],
+        images: [
+            '/images/toy-1.jpg',
+            '/images/toy-2.jpg',
+            '/images/toy-3.png',
+            '/images/toy-4.jpg',
+        ],
+    },
     'divine-meltdown': {
         title: 'Divine Meltdown Chpt. 1',
         category: 'Game Development',
-        year: '2022',
+        year: '2024',
         color: 'from-orange-500 to-red-500',
+        links: {},
         description: {
             de: 'Story-getriebenes Adventure mit atmosphärischem Storytelling und emotionaler Tiefe.',
             en: 'Story-driven adventure with atmospheric storytelling and emotional depth.',
         },
         longDescription: {
-            de: 'Divine Meltdown ist ein narratives Adventure-Game, das ich als erstes vollwertiges Spiel-Projekt an der FH entwickelt habe. Das Spiel erzählt eine emotionale Geschichte und kombiniert Exploration mit Puzzle-Elementen. Besonders wichtig war mir hier die Atmosphäre durch Lighting, Sound Design und cinematische Kameraführung.',
-            en: 'Divine Meltdown is a narrative adventure game that I developed as my first full game project at university. The game tells an emotional story and combines exploration with puzzle elements. Particularly important to me was the atmosphere through lighting, sound design, and cinematic camera work.',
+            de: 'Divine Meltdown ist ein narratives Adventure-Game, das ich als ersten Spiel-Prototyp an der FH entwickelt habe. Das Spiel erzählt eine emotionale Geschichte und kombiniert Exploration mit Puzzle-Elementen. Besonders wichtig war mir hier die Atmosphäre durch Lighting, Sound Design und cinematische Kameraführung.',
+            en: 'Divine Meltdown is a narrative adventure game that I developed as my first game prototype at university. The game tells an emotional story and combines exploration with puzzle elements. Particularly important to me was the atmosphere through lighting, sound design, and cinematic camera work.',
         },
         tags: ['Unity', 'C#', 'Narrative Design', 'Sound Design', 'Puzzle'],
         tech: ['Unity', 'C#', 'Timeline', 'Cinemachine'],
@@ -112,8 +155,9 @@ const projectsData = {
     'shadow-runner': {
         title: 'Shadow Runner',
         category: 'Game Development',
-        year: '2022',
+        year: '2024',
         color: 'from-gray-700 to-gray-900',
+        links: {},
         description: {
             de: 'Schneller Action-Plattformer mit präzisem Movement-System.',
             en: 'Fast-paced action platformer with precise movement system.',
@@ -133,8 +177,9 @@ const projectsData = {
     'last-symphony': {
         title: 'The Last Symphony',
         category: 'Game Development',
-        year: '2023',
+        year: '2024',
         color: 'from-indigo-500 to-purple-600',
+        links: {},
         description: {
             de: 'Puzzle-Adventure mit musikalischen Gameplay-Mechaniken.',
             en: 'Puzzle adventure with musical gameplay mechanics.',
@@ -151,22 +196,50 @@ const projectsData = {
             '/images/last-symphony-3.png',
         ],
     },
+    'blurred-thoughts': {
+        title: 'Blurred Thoughts (GameJam)',
+        category: 'Game Development',
+        year: '2024',
+        color: 'from-indigo-500 to-purple-600',
+        links: {
+            github: 'https://github.com/l1lm0ch1/Blurry-Thoughts-Game.git',
+        },
+        link: '',
+        description: {
+            de: 'GameJam Titel mit dem Thema "Blast from the past".',
+            en: 'GameJam title with the topic "Blast from the past".',
+        },
+        longDescription: {
+            de: 'Dieses Game wurde im Rahmen des Hagenberger Game Jam 2024 entwickelt. Das Thema lautete: Blast from the Past. Ursprünglich sollte es ein Cozy Game werden, jedoch führten Lighting-Probleme zu einer stilistischen Neuorientierung. Die entstandene Atmosphäre eignete sich ideal für ein Horrorgame, was schließlich zum finalen Konzept führte.',
+            en: 'This game was developed during the Hagenberg Game Jam 2024. The theme was “Blast from the Past.” The initial idea was to create a cozy game, but lighting issues inspired a stylistic shift. The resulting atmosphere suited a horror experience perfectly, which shaped the final direction.',
+        },
+        tags: ['Unity', 'Audio Design', 'Puzzle', 'C#', 'Music'],
+        tech: ['Unity', 'C#', 'FMOD', 'Audio Programming'],
+        images: [
+            '/images/blurred-thoughts.png',
+            '/images/blurred-thoughts-1.png',
+            '/images/blurred-thoughts-2.png',
+            '/images/blurred-thoughts-3.png',
+        ],
+    },
     'the-feast': {
         title: 'The Feast',
         category: 'Game Development',
         year: '2023',
         color: 'from-red-600 to-red-900',
+        links: {},
         description: {
-            de: 'Horror Cooking Experience mit einzigartiger Atmosphäre.',
-            en: 'Horror cooking experience with unique atmosphere.',
+            de: 'Horror Online Mehrspieler Erfahrung mit einzigartiger Atmosphäre.',
+            en: 'Horror online multiplayer experience with unique atmosphere.',
         },
         longDescription: {
-            de: 'The Feast ist ein Horror-Game mit einem ungewöhnlichen Setting: eine Küche. Das Spiel verbindet Cooking-Simulator-Mechaniken mit Horror-Elementen. Durch Sound Design, Lighting und subtile Storytelling-Elemente habe ich eine unheimliche Atmosphäre geschaffen.',
-            en: 'The Feast is a horror game with an unusual setting: a kitchen. The game combines cooking simulator mechanics with horror elements. Through sound design, lighting, and subtle storytelling elements, I created an eerie atmosphere.',
+            de: 'The Feast ist ein Online-Multiplayer-Horrorspiel mit Inspirationen aus Phasmophobia und Dead by Daylight. Die Spieler müssen verschiedene Monstertypen identifizieren und durch Ritualmechaniken im Endgame-Loop exorzieren. Ziel ist es, das Monster heraufzubeschwören und anschließend mithilfe von Ritualzirkeln innerhalb des Gebäudes zu bannen.',
+            en: 'The Feast is an online multiplayer horror game inspired by Phasmophobia and Dead by Daylight. Players must identify different monster types and exorcise them through ritual mechanics in the endgame loop. The objective is to summon the monster and banish it using ritual circles within the building.',
         },
-        tags: ['Unity', 'Horror', 'Simulation', 'Sound Design', 'Atmosphere'],
-        tech: ['Unity', 'C#', 'Post-Processing', 'Audio Middleware'],
+        tags: ['Unreal Engine 5', 'Horror', 'Simulation', 'Atmosphere', 'Blueprints'],
+        tech: ['Unreal Engine 5', 'Blueprints'],
         images: [
+            '/images/the-feast.png',
             '/images/the-feast-1.png',
             '/images/the-feast-2.png',
             '/images/the-feast-3.png',
@@ -177,6 +250,9 @@ const projectsData = {
         category: 'VR / Game Development',
         year: '2024',
         color: 'from-green-400 to-emerald-600',
+        links: {
+            github: 'https://github.com/l1lm0ch1/Petal-Potions.git',
+        },
         description: {
             de: 'Immersiver VR Alchemy Simulator mit Handtracking.',
             en: 'Immersive VR alchemy simulator with hand tracking.',
@@ -185,9 +261,10 @@ const projectsData = {
             de: 'Petal Potions VR ist ein VR-Spiel, in dem Spieler als Alchemist Tränke brauen. Mit Hand-Tracking können Spieler Zutaten greifen, mischen und magische Tränke erschaffen. Das Projekt war technisch anspruchsvoll, da VR-Interaktionen präzise und intuitiv sein müssen.',
             en: 'Petal Potions VR is a VR game where players brew potions as an alchemist. With hand tracking, players can grab ingredients, mix them, and create magical potions. The project was technically challenging as VR interactions must be precise and intuitive.',
         },
-        tags: ['VR', 'Unity', 'Hand Tracking', 'Physics', 'XR Interaction'],
+        tags: ['VR', 'Unity', 'XR Interaction'],
         tech: ['Unity', 'XR Interaction Toolkit', 'Oculus SDK', 'C#'],
         images: [
+            '/images/petal-potions.png',
             '/images/petal-potions-1.png',
             '/images/petal-potions-2.png',
             '/images/petal-potions-3.png',
@@ -198,14 +275,15 @@ const projectsData = {
         category: 'Bachelor Thesis',
         year: '2024-2025',
         color: 'from-red-500 to-pink-600',
-        badge: { de: 'In Entwicklung', en: 'In Progress' },
+        links: {},
+        badge: {de: 'In Entwicklung', en: 'In Progress'},
         description: {
             de: 'Mein aktuelles Bachelorarbeit-Projekt - Coming Soon!',
             en: 'My current bachelor thesis project - Coming Soon!',
         },
         longDescription: {
-            de: 'Virtual Damage ist mein Bachelorarbeit-Projekt und stellt den Höhepunkt meines Studiums dar. Das Projekt ist noch in Entwicklung, aber ich kann bereits sagen, dass es all meine Erfahrungen aus den letzten Jahren kombiniert. Mehr Details folgen bald!',
-            en: 'Virtual Damage is my bachelor thesis project and represents the culmination of my studies. The project is still in development, but I can already say that it combines all my experiences from recent years. More details coming soon!',
+            de: 'Dieses Projekt ist eine narrative VR-Experience, die im Rahmen des Semesterprojekts im fünften Semester begonnen wurde. Das Spiel befindet sich aktuell in Entwicklung und spielt zur Zeit des Zweiten Weltkriegs, ergänzt durch Science-Fiction-Elemente.',
+            en: 'This project is a narrative VR experience initiated in the fifth semester’s major project. The game is currently in development and takes place during World War II with an added touch of science fiction.',
         },
         tags: ['Bachelor Thesis', 'Unity', 'C#', 'Game Design', 'Research'],
         tech: ['Unity', 'C#', 'Advanced Systems', 'TBA'],
@@ -220,33 +298,61 @@ const projectsData = {
         category: 'Serious Game',
         year: '2024',
         color: 'from-teal-400 to-blue-500',
+        links: {},
+        badge: {de: 'In Entwicklung', en: 'In Progress'},
         description: {
             de: 'Meaningful Serious Game über Mental Health Awareness.',
             en: 'Meaningful serious game about mental health awareness.',
         },
         longDescription: {
-            de: 'Letters To Myself ist ein Serious Game, das sich mit Mental Health auseinandersetzt. Durch interaktives Storytelling und emotionale Narrative versucht das Spiel, Bewusstsein für mentale Gesundheit zu schaffen. Das Projekt war persönlich sehr bedeutend und hat mir gezeigt, wie Games als Medium für wichtige Themen dienen können.',
-            en: 'Letters To Myself is a serious game that addresses mental health. Through interactive storytelling and emotional narratives, the game aims to create awareness for mental health. This project was personally very meaningful and showed me how games can serve as a medium for important topics.',
+            de: 'Ein Serious Game, das im Rahmen der Lehrveranstaltung Games with a Purpose an der FH entwickelt wird. Das Spiel thematisiert mentale Gesundheit und Coping-Strategien, indem der Spieler gute und schlechte Erinnerungen durchlebt. Das Projekt befindet sich zurzeit in Entwicklung.',
+            en: 'A serious game developed in the course “Games with a Purpose” at the university. It addresses mental health and coping mechanisms by letting the player experience both positive and negative memories. The project is currently in development.',
         },
         tags: ['Serious Game', 'Unity', 'Mental Health', 'Narrative', 'Interactive Story'],
         tech: ['Unity', 'C#', 'Ink Narrative', 'UI Design'],
         images: [
+            '/images/letters-to-myself.png',
             '/images/letters-to-myself-1.png',
             '/images/letters-to-myself-2.png',
             '/images/letters-to-myself-3.png',
         ],
     },
+    'bachelor-thesis': {
+        title: 'Approaches to Enhancing Immersion in VR via physical Object tracking',
+        category: 'Bachelor Thesis',
+        year: '2024',
+        color: 'from-teal-400 to-blue-500',
+        links: {},
+        badge: {de: 'In Entwicklung', en: 'In Progress'},
+        description: {
+            de: 'Mein aktuelles Bachelorarbeit-Projekt - Coming Soon!',
+            en: 'My current bachelor thesis project - Coming Soon!',
+        },
+        longDescription: {
+            de: 'In meiner Bachelorarbeit untersuche ich, wie sich die Immersion von Spielern in VR steigern lässt, indem physische Objekte in Echtzeit mitgetrackt werden. Dabei werden unterschiedliche Tracking-Methoden analysiert und eine umfassende Studie zur Wirksamkeit durchgeführt. Die Arbeit befindet sich aktuell in Bearbeitung.',
+            en: 'My bachelor thesis investigates how player immersion in VR can be enhanced by tracking physical objects in real time. Various tracking methods are analyzed, and an extensive study is conducted to evaluate their effectiveness. The thesis is currently in progress.',
+        },
+        tags: ['Hand tracking', 'Immersion', 'Unity', 'XR Toolkit', 'Bachelor Thesis'],
+        tech: ['Unity', 'C#', 'XR Toolkit'],
+        images: [
+            /*
+            '/images/bachelor-thesis.png',
+            '/images/bachelor-thesis-1.png',
+            '/images/bachelor-thesis-2.png',
+            '/images/bachelor-thesis-3.png',*/
+        ],
+    },
 };
 
 export default function ProjectDetail() {
-    const { id } = useParams();
-    const { language, t } = useTranslation();
+    const {id} = useParams();
+    const {language, t} = useTranslation();
 
     if (!id || !projectsData[id as keyof typeof projectsData]) {
-        return <Navigate to="/projects" replace />;
+        return <Navigate to="/projects" replace/>;
     }
 
-    const project = projectsData[id as keyof typeof projectsData];
+    const project = projectsData[id as keyof typeof projectsData] as Project;
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
@@ -256,7 +362,7 @@ export default function ProjectDetail() {
                     to="/projects"
                     className="inline-flex items-center gap-2 text-zinc-400 hover:text-red-400 transition-colors mb-8 group"
                 >
-                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform"/>
                     {t('projects.back')}
                 </Link>
 
@@ -266,12 +372,14 @@ export default function ProjectDetail() {
                         <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
                             {project.title}
                         </h1>
-                        {'badge' in project && project.badge && (
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                </span>
+                        {project.badge && (
+                            <div
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm">
+                        <span className="relative flex h-2 w-2">
+                            <span
+                                className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                        </span>
                                 {project.badge[language]}
                             </div>
                         )}
@@ -279,49 +387,56 @@ export default function ProjectDetail() {
 
                     <div className="flex flex-wrap items-center gap-6 text-zinc-400 mb-6">
                         <div className="flex items-center gap-2">
-                            <Tag size={18} />
+                            <Tag size={18}/>
                             <span>{project.category}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Calendar size={18} />
+                            <Calendar size={18}/>
                             <span>{project.year}</span>
                         </div>
                     </div>
 
                     <p className="text-xl text-zinc-300 mb-8 max-w-3xl">
-                        {project.description[language]}
+                        {project.description?.[language] ?? ''}
                     </p>
 
                     <div className="flex flex-wrap gap-3">
-                        {project.tags.map((tag, i) => (
+                        {(project.tags ?? []).map((tag, i) => (
                             <span
                                 key={i}
                                 className="px-4 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg text-zinc-300 text-sm"
                             >
-                {tag}
-              </span>
+                        {tag}
+                    </span>
                         ))}
                     </div>
                 </div>
 
                 {/* Main Image */}
-                <div className="mb-12 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-                    <div className={`aspect-video bg-gradient-to-br ${project.color} rounded-2xl overflow-hidden relative group`}>
+                <div className="mb-12 animate-fadeIn" style={{animationDelay: '0.1s'}}>
+                    <div
+                        className={`aspect-video bg-gradient-to-br ${project.color} rounded-2xl overflow-hidden relative group`}>
                         <div className="absolute inset-0 bg-zinc-900/50 flex items-center justify-center">
-                            {/* <div className="text-8xl opacity-50">🎮</div> */}
-                            <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img
+                                src={project.images?.[0] ?? ''}
+                                alt={project.title ?? ''}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
                         </div>
                     </div>
                 </div>
 
+                {/* Grid: Main Content + Sidebar */}
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Main Content */}
                     <div className="md:col-span-2 space-y-8">
                         {/* Description */}
-                        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+                        <div
+                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 animate-fadeIn"
+                            style={{animationDelay: '0.2s'}}>
                             <h2 className="text-3xl font-bold text-white mb-6">About This Project</h2>
                             <p className="text-zinc-300 text-lg leading-relaxed">
-                                {project.longDescription[language]}
+                                {project.longDescription?.[language] ?? ''}
                             </p>
                         </div>
 
@@ -329,14 +444,14 @@ export default function ProjectDetail() {
                         <div className="animate-fadeIn" style={{animationDelay: '0.3s'}}>
                             <h2 className="text-3xl font-bold text-white mb-6">Gallery</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {project.images.map((imgSrc, i) => (
+                                {(project.images ?? []).map((imgSrc, i) => (
                                     <div
                                         key={i}
                                         className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl overflow-hidden group cursor-pointer"
                                     >
                                         <img
                                             src={imgSrc}
-                                            alt={`${project.title} ${i + 1}`}
+                                            alt={`${project.title ?? 'Image'} ${i + 1}`}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
@@ -345,7 +460,7 @@ export default function ProjectDetail() {
                         </div>
                     </div>
 
-                    {/* Sidebar */}
+                    {/* Sidebar: Tech, Links, Project Info */}
                     <div className="space-y-6">
                         {/* Tech-Stack */}
                         <div
@@ -353,7 +468,7 @@ export default function ProjectDetail() {
                             style={{animationDelay: '0.2s'}}>
                             <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
                             <div className="space-y-2">
-                                {project.tech.map((tech, i) => (
+                                {(project.tech ?? []).map((tech, i) => (
                                     <div
                                         key={i}
                                         className="px-4 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg text-zinc-300 text-sm"
@@ -365,48 +480,52 @@ export default function ProjectDetail() {
                         </div>
 
                         {/* Links */}
-                        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+                        <div
+                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn"
+                            style={{animationDelay: '0.3s'}}>
                             <h3 className="text-xl font-bold text-white mb-4">Links</h3>
                             <div className="space-y-3">
-                            <a
-                                href="#"
-                                className="flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-red-500/50 rounded-lg text-zinc-300 hover:text-red-400 transition-all group"
-                                >
-                                <Github size={20} />
-                                <span className="flex-1">View on GitHub</span>
-                                <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </a><a
-                            href="#"
-                            className="flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-red-500/50 rounded-lg text-zinc-300 hover:text-red-400 transition-all group"
-                            >
-                            <ExternalLink size={20} />
-                            <span className="flex-1">Live Demo</span>
-                            <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </div>
-                </div>
+                                {project.links?.github ? (
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors"
+                                    >
+                                        <Github size={18}/>
+                                        GitHub
+                                    </a>
+                                ) : (
+                                    <span
+                                        className="flex items-center gap-2 text-zinc-500 italic">No link available</span>
+                                )}
+                            </div>
+                        </div>
 
-                {/* Project Info */}
-                <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-                    <h3 className="text-xl font-bold text-white mb-4">Project Info</h3>
-                    <div className="space-y-4 text-sm">
-                        <div>
-                            <span className="text-zinc-500">Year</span>
-                            <p className="text-zinc-300 font-medium">{project.year}</p>
-                        </div>
-                        <div>
-                            <span className="text-zinc-500">Category</span>
-                            <p className="text-zinc-300 font-medium">{project.category}</p>
-                        </div>
-                        <div>
-                            <span className="text-zinc-500">Role</span>
-                            <p className="text-zinc-300 font-medium">Solo Developer</p>
+                        {/* Project Info */}
+                        <div
+                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn"
+                            style={{animationDelay: '0.4s'}}>
+                            <h3 className="text-xl font-bold text-white mb-4">Project Info</h3>
+                            <div className="space-y-4 text-sm">
+                                <div>
+                                    <span className="text-zinc-500">Year</span>
+                                    <p className="text-zinc-300 font-medium">{project.year}</p>
+                                </div>
+                                <div>
+                                    <span className="text-zinc-500">Category</span>
+                                    <p className="text-zinc-300 font-medium">{project.category}</p>
+                                </div>
+                                <div>
+                                    <span className="text-zinc-500">Role</span>
+                                    <p className="text-zinc-300 font-medium">Programmer</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-</div>
-);
+
+    );
 }
