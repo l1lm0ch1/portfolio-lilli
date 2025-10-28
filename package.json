@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
+  "homepage": "https://l1lm0ch1.github.io/portfolio-lilli",
   "dependencies": {
     "lucide-react": "^0.263.1",
     "react": "^18.3.1",
