@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetails.tsx';
 import Hobbies from './pages/Hobbies';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import './styles/App.css';
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
                         <Route path="/projects/:id" element={<ProjectDetail />} />
                         <Route path="/hobbies" element={<Hobbies />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<NotFound />} /> {/* 404 Route */}
                     </Routes>
                 </main>
                 <Footer />
