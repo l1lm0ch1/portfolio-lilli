@@ -1,5 +1,5 @@
 import { Code, Palette, Gamepad2, GraduationCap, Calendar } from 'lucide-react';
-import { useTranslation } from '../i18n/translations';
+import { useTranslation, Language, translations } from '../i18n/translations';
 
 export default function About() {
     const { t } = useTranslation();
@@ -98,7 +98,7 @@ export default function About() {
                     <div className="space-y-6">
                         <div className="relative aspect-square bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-2xl backdrop-blur-sm border border-red-500/30 flex items-center justify-center overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            <img src="/images/lilli-1.jpg" alt="Lilli Ölsinger" className="w-full h-full object-cover" />
+                            <img src="./images/lilli-1.jpg" alt="Lilli Ölsinger" className="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>
@@ -116,8 +116,12 @@ export default function About() {
                                 <div className={`w-14 h-14 bg-gradient-to-br ${card.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                                     <card.icon size={28} className="text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{t(card.titleKey)}</h3>
-                                <p className="text-zinc-400">{t(card.descKey)}</p>
+                                <h3 className="text-xl font-bold text-white mb-3">
+                                    {t(card.titleKey as keyof typeof translations[Language])}
+                                </h3>
+                                <p className="text-zinc-400">
+                                    {t(card.descKey as keyof typeof translations[Language])}
+                                </p>
                             </div>
                         ))}
                     </div>

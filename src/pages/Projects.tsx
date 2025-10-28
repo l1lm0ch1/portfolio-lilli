@@ -264,7 +264,7 @@ export default function Projects() {
 
                                 <div
                                     className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                                    <img src={`/images/${project.id}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    <img src={`images/${project.id}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
 
                                 <div className="mb-4">

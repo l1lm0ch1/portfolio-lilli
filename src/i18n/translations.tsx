@@ -115,7 +115,7 @@ export type TranslationKeys = keyof typeof translations["de"];
 interface TranslationContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
-    t: (key: TranslationKeys) => string;
+    t: (key: string) => string; // <-- hier statt TranslationKeys
 }
 
 // 5️⃣ Context erstellen (undefined, damit useTranslation Check erzwingt)
@@ -130,8 +130,8 @@ interface TranslationProviderProps {
 export function TranslationProvider({ children }: TranslationProviderProps) {
     const [language, setLanguage] = useState<Language>("de");
 
-    const t = (key: TranslationKeys): string => {
-        return translations[language][key] ?? key;
+    const t = (key: string): string => {
+        return translations[language][key as TranslationKeys] ?? key;
     };
 
     return (
