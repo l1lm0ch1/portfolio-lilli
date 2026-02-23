@@ -282,9 +282,9 @@ const projectsData = {
         tags: ['Bachelor Thesis', 'VR', 'Unity', 'C#', 'Arduino', 'ArUco', 'Research', 'Haptic Feedback'],
         tech: ['Unity 6', 'C#', 'Arduino', 'XR Interaction Toolkit', 'OpenCV', 'Meta Quest 2'],
         images: [
-            'images/bachelor-thesis-1.png',
-            'images/bachelor-thesis-2.png',
-            'images/bachelor-thesis-3.png',
+            'images/approaches-to-enhancing-immersion-1.png',
+            'images/approaches-to-enhancing-immersion-2.png',
+            'images/approaches-to-enhancing-immersion-3.png',
         ],
     },
 
