@@ -3,7 +3,19 @@ import {Link} from 'react-router-dom';
 import {ExternalLink, Filter} from 'lucide-react';
 import {useTranslation} from '../i18n/translations';
 
-const projectsData = [
+type ProjectCard = {
+    id: string;
+    page: string;
+    title: string;
+    category: string;
+    description: { de: string; en: string };
+    year: string;
+    color: string;
+    tags: string[];
+    badge?: { de: string; en: string }; 
+};
+
+const projectsData: ProjectCard[] = [
     {
         id: 'vr-avatar.png',
         page: 'vr-avatar',
@@ -148,32 +160,30 @@ const projectsData = [
         tags: ['VR', 'Unity', 'Interactive Game'],
     },
     {
-        id: 'virtual-damage.png',
-        page: 'virtual-damage',
-        title: 'Virtual Damage',
-        category: 'VR',
+        id: 'approaches-to-enhancing-immersion.png',
+        page: 'approaches-to-enhancing-immersion',
+        title: 'Approaches to Enhancing Immersion in Virtual Reality Through Physical Object Integration',
+        category: 'Bachelor Thesis',
         description: {
-            de: 'Aktuelles Semesterprojekt - WIP',
-            en: 'Current Semester project - WIP'
+            de: 'Bachelorarbeit über Immersionsverbesserung in VR durch physische Objektintegration.',
+            en: 'Bachelor thesis on enhancing immersion in VR through physical object integration.',
         },
-        year: '2025',
-        badge: {de: 'In Entwicklung', en: 'In Progress'},
+        year: '2024-2025',
         color: 'from-red-500 to-pink-600',
-        tags: ['VR', 'Unity', 'C#', 'Hand tracking'],
+        tags: ['Bachelor Thesis', 'VR', 'Unity', 'C#', 'Arduino', 'ArUco'],
     },
     {
-        id: 'bachelor-thesis',
-        page: 'bachelor-thesis',
-        title: 'Approaches to Enhancing Immersion in VR via physical Object tracking',
-        category: 'VR',
+        id: 'archangel-vr.png',
+        page: 'archangel-vr',
+        title: 'Archangel VR',
+        category: 'VR Game',
         description: {
-            de: 'Mein aktuelles Bachelorarbeit-Projekt - Coming Soon!',
-            en: 'My current bachelor thesis project - Coming Soon!'
+            de: 'Story-getriebenes VR-Spiel mit einzigartiger Flug-Mechanik und atmosphärischer Umgebung.',
+            en: 'Story-driven VR game with a unique flapping flight mechanic and atmospheric environment.',
         },
-        year: '2025',
-        badge: {de: 'In Entwicklung', en: 'In Progress'},
-        color: 'from-red-500 to-pink-600',
-        tags: ['Bachelor Thesis', 'Unity', 'C#'],
+        year: '2024-2025',
+        color: 'from-purple-500 to-indigo-600',
+        tags: ['VR', 'Unity', 'C#', 'Game Design', 'XR Interaction Toolkit'],
     },
     {
         id: 'letters-to-myself.png',
@@ -185,7 +195,6 @@ const projectsData = [
             en: 'Meaningful serious game about mental health awareness'
         },
         year: '2025',
-        badge: {de: 'In Entwicklung', en: 'In Progress'},
         color: 'from-teal-400 to-blue-500',
         tags: ['Serious Game', 'Unity', 'C#', 'Mental Health'],
     },
