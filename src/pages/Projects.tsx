@@ -178,8 +178,8 @@ const projectsData: ProjectCard[] = [
         title: 'Archangel VR',
         category: 'VR',
         description: {
-            de: 'Story-getriebenes VR-Spiel mit einzigartiger Flug-Mechanik und atmosphärischer Umgebung.',
-            en: 'Story-driven VR game with a unique flapping flight mechanic and atmospheric environment.',
+            de: 'Ein story-getriebenes VR-Spiel über einen Soldaten der einen Flugzeugabsturz überlebt.',
+            en: 'A story-driven VR game about a soldier who survives a plane crash.',
         },
         year: '2024-2025',
         color: 'from-purple-500 to-indigo-600',
