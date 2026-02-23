@@ -163,7 +163,7 @@ const projectsData: ProjectCard[] = [
         id: 'approaches-to-enhancing-immersion.png',
         page: 'approaches-to-enhancing-immersion',
         title: 'Approaches to Enhancing Immersion in Virtual Reality Through Physical Object Integration',
-        category: 'Bachelor Thesis',
+        category: 'VR',
         description: {
             de: 'Bachelorarbeit über Immersionsverbesserung in VR durch physische Objektintegration.',
             en: 'Bachelor thesis on enhancing immersion in VR through physical object integration.',
@@ -176,7 +176,7 @@ const projectsData: ProjectCard[] = [
         id: 'archangel-vr.png',
         page: 'archangel-vr',
         title: 'Archangel VR',
-        category: 'VR Game',
+        category: 'VR',
         description: {
             de: 'Story-getriebenes VR-Spiel mit einzigartiger Flug-Mechanik und atmosphärischer Umgebung.',
             en: 'Story-driven VR game with a unique flapping flight mechanic and atmospheric environment.',
