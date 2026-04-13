@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, MapPin, Send } from 'lucide-react';
 import { useTranslation } from '../i18n/translations';
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaItchIo } from "react-icons/fa";
 
 export default function Contact() {
     const { t } = useTranslation();
@@ -18,6 +18,13 @@ export default function Contact() {
             icon: Linkedin,
             label: 'LinkedIn',
             color: 'from-blue-600 to-blue-800',
+            username: 'Lilli Ölsinger'
+        },
+        {
+            href: 'https://l1lm0ch1.itch.io',
+            icon: FaItchIo,
+            label: 'itch.io',
+            color: 'from-orange-500 to-red-500',
             username: 'Lilli Ölsinger'
         },
         {
@@ -64,7 +71,7 @@ export default function Contact() {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-4 text-zinc-300">
                                     <MapPin size={20} className="text-red-400"/>
-                                    <span>Linz, Oberösterreich, Austria</span>
+                                    <span>Wels, Oberösterreich, Austria</span>
                                 </div>
                             </div>
                         </div>
