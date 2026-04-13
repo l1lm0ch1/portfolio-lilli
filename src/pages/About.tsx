@@ -33,13 +33,13 @@ export default function About() {
             icon: Calendar,
         },
         {
-            year: '2022',
+            year: '2018 - 2023',
             title: { de: 'HTL Leonding', en: 'HTL Leonding' },
             desc: { de: 'Matura in Elektronik & Technischer Informatik', en: 'Diploma in Electronics & Computer Science' },
             icon: GraduationCap,
         },
         {
-            year: '2022-2025',
+            year: '2023-2026',
             title: { de: 'FH Hagenberg', en: 'FH Hagenberg' },
             desc: { de: 'Medientechnik & Design - Game Development', en: 'Media Technology & Design - Game Development' },
             icon: GraduationCap,

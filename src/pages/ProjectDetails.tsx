@@ -1,6 +1,6 @@
-import {useParams, Link, Navigate} from 'react-router-dom';
-import {ArrowLeft, Github, Calendar, Tag} from 'lucide-react';
-import {useTranslation} from '../i18n/translations';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { ArrowLeft, Github, Calendar, Tag } from 'lucide-react';
+import { useTranslation } from '../i18n/translations';
 
 type Project = {
     links?: Record<string, string>;
@@ -332,8 +332,8 @@ const projectsData = {
 
 
 export default function ProjectDetail() {
-    const {id} = useParams();
-    const {language, t} = useTranslation();
+    const { id } = useParams();
+    const { language, t } = useTranslation();
 
     if (!id || !projectsData[id as keyof typeof projectsData]) {
         return <Navigate to="/projects" replace />;
@@ -453,7 +453,10 @@ export default function ProjectDetail() {
                         </div>
 
                         {/* Links */}
-                        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+                        <div
+                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn"
+                            style={{ animationDelay: '0.3s' }}
+                        >
                             <h3 className="text-xl font-bold text-white mb-4">Links</h3>
                             <div className="space-y-3">
                                 {project.links?.github ? (
@@ -466,8 +469,19 @@ export default function ProjectDetail() {
                                         <Github size={18} />
                                         GitHub
                                     </a>
-                                ) : (
-                                    <span className="text-zinc-500 italic">No GitHub link available</span>
+                                ) : null}
+                                {project.links?.itch ? (
+                                    <a
+                                        href={project.links.itch}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-zinc-300 hover:text-white transition-colors"
+                                    >
+                                        itch.io
+                                    </a>
+                                ) : null}
+                                {!project.links?.github && !project.links?.itch && (
+                                    <span className="text-zinc-500 italic">No links available</span>
                                 )}
                             </div>
                         </div>
@@ -492,7 +506,7 @@ export default function ProjectDetail() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
