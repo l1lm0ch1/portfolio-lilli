@@ -243,7 +243,7 @@ const projectsData = {
         category: 'VR / Game Development',
         year: '2025',
         color: 'from-green-400 to-emerald-600',
-        links: { github: 'https://github.com/l1lm0ch1/Petal-Potions.git' },
+        links: { itch: 'https://l1lm0ch1.itch.io/petal-potions' },
         description: {
             de: 'Blumen züchten, Tränke brauen, in VR entspannen — inspiriert von Stardew Valley und Slime Rancher.',
             en: 'Grow flowers, brew potions, relax in VR — inspired by Stardew Valley and Slime Rancher.',
