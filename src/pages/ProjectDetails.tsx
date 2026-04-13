@@ -310,7 +310,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2025',
         color: 'from-teal-400 to-blue-500',
-        links: { },
+        links: { itch: 'https://l1lm0ch1.itch.io/letters-to-myself' },
         description: {
             de: 'Ein Serious Game über Mental Health — Briefe schreiben, dekorieren, abschicken, und dabei ein Leben aufdecken.',
             en: 'A serious game about mental health — write letters, decorate them, send them off, and uncover a life.',
