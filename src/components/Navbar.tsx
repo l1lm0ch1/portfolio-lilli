@@ -23,6 +23,7 @@ export default function Navbar() {
         { path: '/', key: 'home' },
         { path: '/about', key: 'about' },
         { path: '/projects', key: 'projects' },
+        { path: '/journey', key: 'journey' },
         { path: '/hobbies', key: 'hobbies' },
         { path: '/contact', key: 'contact' },
     ];

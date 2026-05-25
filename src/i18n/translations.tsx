@@ -7,6 +7,7 @@ export const translations = {
         'nav.home': 'Home',
         'nav.about': 'Über mich',
         'nav.projects': 'Projekte',
+        'nav.journey': 'Werdegang',
         'nav.hobbies': 'Hobbies',
         'nav.contact': 'Kontakt',
         'hero.greeting': 'Hallo, ich bin',
@@ -58,6 +59,7 @@ export const translations = {
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.projects': 'Projects',
+        'nav.journey': 'Journey',
         'nav.hobbies': 'Hobbies',
         'nav.contact': 'Contact',
         'hero.greeting': 'Hi, I\'m',
@@ -108,25 +110,21 @@ export const translations = {
 } as const;
 
 
-// 3️⃣ Key-Typen automatisch ableiten
 export type TranslationKeys = keyof typeof translations["de"];
 
 // 4️⃣ Context-Typ
 interface TranslationContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
-    t: (key: string) => string; // <-- hier statt TranslationKeys
+    t: (key: string) => string;
 }
 
-// 5️⃣ Context erstellen (undefined, damit useTranslation Check erzwingt)
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
 
-// 6️⃣ Provider Props
 interface TranslationProviderProps {
     children: ReactNode;
 }
 
-// 7️⃣ TranslationProvider
 export function TranslationProvider({ children }: TranslationProviderProps) {
     const [language, setLanguage] = useState<Language>("de");
 
@@ -136,12 +134,11 @@ export function TranslationProvider({ children }: TranslationProviderProps) {
 
     return (
         <TranslationContext.Provider value={{ language, setLanguage, t }}>
-    {children}
-    </TranslationContext.Provider>
-);
+            {children}
+        </TranslationContext.Provider>
+    );
 }
 
-// 8️⃣ Hook zum einfachen Zugriff
 export function useTranslation(): TranslationContextType {
     const context = useContext(TranslationContext);
     if (!context) {

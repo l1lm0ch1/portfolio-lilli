@@ -12,7 +12,7 @@ type ProjectCard = {
     year: string;
     color: string;
     tags: string[];
-    badge?: { de: string; en: string }; 
+    badge?: { de: string; en: string };
 };
 
 const projectsData: ProjectCard[] = [
@@ -221,9 +221,9 @@ export default function Projects() {
                 </div>
 
                 {/* Filter */}
-                <div className="mb-12 flex justify-center animate-fadeIn" style={{animationDelay: '0.1s'}}>
+                <div className="mb-12 flex justify-center animate-fadeIn overflow-x-auto px-4 scrollbar-none" style={{animationDelay: '0.1s'}}>
                     <div
-                        className="inline-flex items-center gap-4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-2">
+                        className="inline-flex items-center gap-2 sm:gap-4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-2 min-w-max">
                         <Filter size={20} className="text-zinc-400 ml-2"/>
                         {[
                             {value: 'all', label: t('projects.all')},

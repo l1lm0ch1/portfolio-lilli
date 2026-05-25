@@ -14,6 +14,7 @@ type Project = {
     category: string;
     year: string;
     color: string;
+    role: string;
 };
 
 const projectsData = {
@@ -22,6 +23,7 @@ const projectsData = {
         category: 'VR / 3D Modeling',
         year: '2020',
         color: 'from-purple-500 to-pink-500',
+        role: '3D Artist & Creator',
         links: {},
         description: {
             de: 'Custom VRChat Avatare — weil man auch in VR gut aussehen muss.',
@@ -44,6 +46,7 @@ const projectsData = {
         category: 'VR / Level Design',
         year: '2021',
         color: 'from-blue-500 to-cyan-500',
+        role: 'World Designer & Creator',
         links: {},
         description: {
             de: 'Eine eigene VRChat-Welt — denn warum in fremden Welten rumhängen, wenn man eine eigene bauen kann?',
@@ -62,9 +65,10 @@ const projectsData = {
     },
     'cozy-place': {
         title: 'My cozy place',
-        category: 'Modelling',
+        category: '3D Modeling',
         year: '2024',
         color: 'from-blue-500 to-cyan-500',
+        role: '3D Artist',
         links: {},
         description: {
             de: 'Ein Gamer-Zimmer in Maya — klein, persönlich, und mit einem Katana das eigentlich niemand braucht.',
@@ -85,9 +89,10 @@ const projectsData = {
     },
     'toon-architecture': {
         title: 'Toon Architecture',
-        category: 'Modelling',
+        category: '3D Modeling',
         year: '2024',
         color: 'from-blue-500 to-cyan-500',
+        role: '3D Artist',
         links: {},
         description: {
             de: 'Ein Pokémon Center im Toon-Stil — entstanden aus einem Missverständnis und fertiggestellt aus reiner Sturheit.',
@@ -107,9 +112,10 @@ const projectsData = {
     },
     'toy': {
         title: 'Toy',
-        category: 'Modelling',
+        category: '3D Modeling',
         year: '2024',
         color: 'from-blue-500 to-cyan-500',
+        role: '3D Artist',
         links: {},
         description: {
             de: 'Ein singender Roboter in Maya. Audio not included.',
@@ -133,6 +139,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2024',
         color: 'from-orange-500 to-red-500',
+        role: 'Team Lead & Lead Programmer',
         links: {},
         description: {
             de: 'Eine Halbgöttin. Gefallene Götter. Magische Artefakte. Und ein Soundtrack, der eigentlich das ganze Spiel trägt.',
@@ -155,7 +162,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2024',
         color: 'from-gray-700 to-gray-900',
-        links: {},
+        role: 'Lead Programmer',
         description: {
             de: 'Ein 2D-Plattformer in Construct 3 — Shards einsammeln, nicht sterben, Level gewinnen. Simpel. Befriedigend.',
             en: 'A 2D platformer in Construct 3 — collect shards, don\'t die, beat the level. Simple. Satisfying.',
@@ -177,6 +184,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2024',
         color: 'from-indigo-500 to-purple-600',
+        role: 'Team Lead & Lead Programmer',
         links: {},
         description: {
             de: 'Clara will das Konzerthaus retten. Der Bürgermeister will Wohnblöcke. Spoiler: Clara gewinnt.',
@@ -197,6 +205,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2024',
         color: 'from-indigo-500 to-purple-600',
+        role: 'Lead Programmer',
         links: { github: 'https://github.com/l1lm0ch1/Blurry-Thoughts-Game.git' },
         description: {
             de: 'Ein düsteres Escape Room Spiel — entwickelt in 48 Stunden, befeuert von Energy Drinks und einer Mitternachts-Rave-Party.',
@@ -220,7 +229,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2025',
         color: 'from-red-600 to-red-900',
-        links: {},
+        role: 'Multiplayer Systems Programmer',
         description: {
             de: 'Monster jagen. Exorzieren. Nicht sterben. Ein Multiplayer-Horrorspiel für alle, die Phasmophobia nicht gruselig genug finden.',
             en: 'Hunt monsters. Exorcise them. Don\'t die. A multiplayer horror game for everyone who thinks Phasmophobia isn\'t scary enough.',
@@ -243,6 +252,7 @@ const projectsData = {
         category: 'VR / Game Development',
         year: '2025',
         color: 'from-green-400 to-emerald-600',
+        role: 'Lead Programmer',
         links: { itch: 'https://l1lm0ch1.itch.io/petal-potions' },
         description: {
             de: 'Blumen züchten, Tränke brauen, in VR entspannen — inspiriert von Stardew Valley und Slime Rancher.',
@@ -266,7 +276,7 @@ const projectsData = {
         category: 'Bachelor Thesis',
         year: '2026',
         color: 'from-red-500 to-pink-600',
-        links: {},
+        role: 'Sole Developer & Researcher',
         badge: { de: 'Abgeschlossen', en: 'Completed' },
         description: {
             de: 'Bachelorarbeit: Physische Objekte in VR — weil "einfach einen Controller halten" manchmal nicht reicht.',
@@ -288,7 +298,7 @@ const projectsData = {
         category: 'VR Game',
         year: '2025',
         color: 'from-purple-500 to-indigo-600',
-        links: {},
+        role: 'Gameplay & Interaction Programmer',
         description: {
             de: 'Soldat. Feindgebiet. Kaputtes Radio. Verwundeter Kamerad. Und ein Ende, das alles auf den Kopf stellt.',
             en: 'Soldier. Enemy territory. Broken radio. Wounded comrade. And an ending that flips everything upside down.',
@@ -310,6 +320,7 @@ const projectsData = {
         category: 'Game Development',
         year: '2025',
         color: 'from-teal-400 to-blue-500',
+        role: 'Lead Programmer',
         links: { itch: 'https://l1lm0ch1.itch.io/letters-to-myself' },
         description: {
             de: 'Ein Serious Game über Mental Health — Briefe schreiben, dekorieren, abschicken, und dabei ein Leben aufdecken.',
@@ -500,7 +511,7 @@ export default function ProjectDetail() {
                                 </div>
                                 <div>
                                     <span className="text-zinc-500">Role</span>
-                                    <p className="text-zinc-300 font-medium">Programmer</p>
+                                    <p className="text-zinc-300 font-medium">{project.role}</p>
                                 </div>
                             </div>
                         </div>

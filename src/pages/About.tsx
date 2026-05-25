@@ -39,7 +39,7 @@ export default function About() {
             icon: GraduationCap,
         },
         {
-            year: '2023-2026',
+            year: '2023 - 2026',
             title: { de: 'FH Hagenberg', en: 'FH Hagenberg' },
             desc: { de: 'Medientechnik & Design - Game Development', en: 'Media Technology & Design - Game Development' },
             icon: GraduationCap,
