@@ -53,7 +53,7 @@ export default function Footer() {
                         <span>{t('footer.in')}</span>
                     </div>
                     <p className="text-zinc-600 text-sm">
-                        © 2025 Lilli Ölsinger. {t('footer.rights')}
+                        © {new Date().getFullYear()} Lilli Ölsinger. {t('footer.rights')}
                     </p>
                 </div>
             </div>

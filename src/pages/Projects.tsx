@@ -200,6 +200,8 @@ const projectsData: ProjectCard[] = [
     },
 ];
 
+const EAGER_IMAGE_COUNT = 3;
+
 export default function Projects() {
     const {language, t} = useTranslation();
     const [filter, setFilter] = useState<'all' | 'VR' | 'Game' | '3D Modelling'>('all');
@@ -211,16 +213,14 @@ export default function Projects() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="mb-16 text-center animate-fadeIn">
-                    <h1 className="inline-block text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent leading-[1.02] antialiased py-2">
+                    <h1 className="inline-block text-5xl md:text-7xl font-bold leading-tight pb-3 mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent antialiased">
                         {t('projects.title')}
                     </h1>
                     <p className="text-zinc-400 text-xl max-w-2xl mx-auto mb-8">{t('projects.subtitle')}</p>
                     <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-pink-500 mx-auto rounded-full"></div>
                 </div>
 
-                {/* Filter */}
                 <div className="mb-12 flex justify-center animate-fadeIn overflow-x-auto px-4 scrollbar-none" style={{animationDelay: '0.1s'}}>
                     <div
                         className="inline-flex items-center gap-2 sm:gap-4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-2 min-w-max">
@@ -246,7 +246,6 @@ export default function Projects() {
                     </div>
                 </div>
 
-                {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
                         <Link
@@ -262,18 +261,24 @@ export default function Projects() {
                                 {project.badge && (
                                     <div
                                         className="inline-flex items-center gap-2 px-3 py-1 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-xs mb-4">
-                    <span className="relative flex h-2 w-2">
-                      <span
-                          className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                    </span>
+                                        <span className="relative flex h-2 w-2">
+                                            <span
+                                                className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                        </span>
                                         {project.badge[language]}
                                     </div>
                                 )}
 
                                 <div
                                     className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                                    <img src={`images/${project.id}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    <img
+                                        src={`images/${project.id}`}
+                                        alt={project.title}
+                                        loading={index < EAGER_IMAGE_COUNT ? 'eager' : 'lazy'}
+                                        decoding="async"
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
                                 </div>
 
                                 <div className="mb-4">
@@ -292,8 +297,8 @@ export default function Projects() {
                                             key={i}
                                             className="text-xs px-2 py-1 bg-zinc-800/50 border border-zinc-700 rounded text-zinc-400"
                                         >
-                      {tag}
-                    </span>
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
 
@@ -301,9 +306,9 @@ export default function Projects() {
                                     <span className="text-xs text-zinc-500 font-mono">{project.year}</span>
                                     <span
                                         className="text-red-400 hover:text-red-300 transition-colors flex items-center gap-2 text-sm">
-                    {t('projects.view')}
+                                        {t('projects.view')}
                                         <ExternalLink size={14}/>
-                  </span>
+                                    </span>
                                 </div>
                             </div>
                         </Link>

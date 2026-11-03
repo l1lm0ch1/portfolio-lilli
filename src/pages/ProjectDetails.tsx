@@ -341,7 +341,6 @@ const projectsData = {
     },
 };
 
-
 export default function ProjectDetail() {
     const { id } = useParams();
     const { language, t } = useTranslation();
@@ -355,7 +354,6 @@ export default function ProjectDetail() {
     return (
         <div className="min-h-screen pt-32 pb-20 px-4">
             <div className="max-w-6xl mx-auto">
-                {/* Back Button */}
                 <Link
                     to="/projects"
                     className="inline-flex items-center gap-2 text-zinc-400 hover:text-red-400 transition-colors mb-8 group"
@@ -364,13 +362,12 @@ export default function ProjectDetail() {
                     {t('projects.back')}
                 </Link>
 
-                {/* Header */}
                 <div className="mb-12 animate-fadeIn">
                     <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                        <h1 className="text-5xl md:text-6xl font-bold leading-tight pb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
                             {project.title}
                         </h1>
-                        {'badge' in project && project.badge && (
+                        {project.badge && (
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/50 rounded-full text-red-400 text-sm">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -405,13 +402,14 @@ export default function ProjectDetail() {
                     </div>
                 </div>
 
-                {/* Main Image */}
                 <div className="mb-12 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
                     <div className={`aspect-video bg-gradient-to-br ${project.color} rounded-2xl overflow-hidden relative group`}>
                         <div className="absolute inset-0 bg-zinc-900/50 flex items-center justify-center">
                             <img
                                 src={project.images[0]}
-                                alt={project.title ?? ''}
+                                alt={project.title}
+                                loading="eager"
+                                decoding="async"
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                         </div>
@@ -419,9 +417,7 @@ export default function ProjectDetail() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {/* Main Content */}
                     <div className="md:col-span-2 space-y-8">
-                        {/* Description */}
                         <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
                             <h2 className="text-3xl font-bold text-white mb-6">About This Project</h2>
                             <p className="text-zinc-300 text-lg leading-relaxed">
@@ -429,18 +425,19 @@ export default function ProjectDetail() {
                             </p>
                         </div>
 
-                        {/* Gallery */}
                         <div className="animate-fadeIn" style={{ animationDelay: '0.3s' }}>
                             <h2 className="text-3xl font-bold text-white mb-6">Gallery</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {project.images.map((imgSrc, i) => (
                                     <div
-                                        key={i}
+                                        key={imgSrc}
                                         className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl overflow-hidden group cursor-pointer"
                                     >
                                         <img
                                             src={imgSrc}
                                             alt={`${project.title} ${i + 1}`}
+                                            loading="lazy"
+                                            decoding="async"
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
@@ -449,9 +446,7 @@ export default function ProjectDetail() {
                         </div>
                     </div>
 
-                    {/* Sidebar */}
                     <div className="space-y-6">
-                        {/* Tech-Stack */}
                         <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
                             <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
                             <div className="space-y-2">
@@ -463,14 +458,10 @@ export default function ProjectDetail() {
                             </div>
                         </div>
 
-                        {/* Links */}
-                        <div
-                            className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn"
-                            style={{ animationDelay: '0.3s' }}
-                        >
+                        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
                             <h3 className="text-xl font-bold text-white mb-4">Links</h3>
                             <div className="space-y-3">
-                                {project.links?.github ? (
+                                {project.links?.github && (
                                     <a
                                         href={project.links.github}
                                         target="_blank"
@@ -480,8 +471,8 @@ export default function ProjectDetail() {
                                         <Github size={18} />
                                         GitHub
                                     </a>
-                                ) : null}
-                                {project.links?.itch ? (
+                                )}
+                                {project.links?.itch && (
                                     <a
                                         href={project.links.itch}
                                         target="_blank"
@@ -490,14 +481,13 @@ export default function ProjectDetail() {
                                     >
                                         itch.io
                                     </a>
-                                ) : null}
+                                )}
                                 {!project.links?.github && !project.links?.itch && (
                                     <span className="text-zinc-500 italic">No links available</span>
                                 )}
                             </div>
                         </div>
 
-                        {/* Project Info */}
                         <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 animate-fadeIn" style={{ animationDelay: '0.4s' }}>
                             <h3 className="text-xl font-bold text-white mb-4">Project Info</h3>
                             <div className="space-y-4 text-sm">
@@ -517,7 +507,7 @@ export default function ProjectDetail() {
                         </div>
                     </div>
                 </div>
-            </div >
-        </div >
+            </div>
+        </div>
     );
 }

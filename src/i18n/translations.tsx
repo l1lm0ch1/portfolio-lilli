@@ -19,7 +19,7 @@ export const translations = {
         'hero.scroll': 'Scroll für mehr',
         'about.title': 'Über mich',
         'about.greeting': 'Hey! 👋',
-        'about.intro': 'Ich bin Lilli Ölsinger, 21 Jahre alt aus Österreich. Derzeit studiere ich im 5. Semester Medientechnik und -Design mit Schwerpunkt Game Development an der FH Hagenberg.',
+        'about.intro': 'Ich bin Lilli Ölsinger, {age} Jahre alt aus Österreich. Nach meinem Bachelor in Medientechnik und -Design an der FH Hagenberg studiere ich derzeit im {semester} Semester meines Masters Code and Interactive Systems an der FH Salzburg.',
         'about.journey': 'Meine Reise begann im Gymnasium mit der ersten Faszination für die Spieleentwicklung. Nach meinem Abschluss in Elektronik und technischer Informatik an der HTL Leonding durfte ich auf der FH bereits mehrere vollwertige Games und Prototypen erschaffen.',
         'about.passion': 'Mein Ziel ist es, meine Träume in der Game Development Industrie zu verwirklichen und unvergessliche Spielerlebnisse zu schaffen.',
         'about.background': 'Mein Hintergrund',
@@ -71,7 +71,7 @@ export const translations = {
         'hero.scroll': 'Scroll for more',
         'about.title': 'About Me',
         'about.greeting': 'Hey! 👋',
-        'about.intro': 'I\'m Lilli Ölsinger, 21 years old from Austria. Currently in my 5th semester studying Media Technology and Design with a focus on Game Development at FH Hagenberg.',
+        'about.intro': 'I\'m Lilli Ölsinger, {age} years old from Austria. After my bachelor\'s in Media Technology and Design at FH Hagenberg, I\'m currently in the {semester} semester of my master\'s in Code and Interactive Systems at FH Salzburg.',
         'about.journey': 'My journey started in high school with my first fascination for game development. After graduating in Electronics and Computer Science at HTL Leonding, I\'ve created several full-fledged games and prototypes at university.',
         'about.passion': 'My goal is to realize my dreams in the game development industry and create unforgettable gaming experiences.',
         'about.background': 'My Background',
@@ -109,14 +109,14 @@ export const translations = {
     },
 } as const;
 
-
 export type TranslationKeys = keyof typeof translations["de"];
 
-// 4️⃣ Context-Typ
+type TranslationParams = Record<string, string | number>;
+
 interface TranslationContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
-    t: (key: string) => string;
+    t: (key: string, params?: TranslationParams) => string;
 }
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
@@ -128,8 +128,13 @@ interface TranslationProviderProps {
 export function TranslationProvider({ children }: TranslationProviderProps) {
     const [language, setLanguage] = useState<Language>("de");
 
-    const t = (key: string): string => {
-        return translations[language][key as TranslationKeys] ?? key;
+    const t = (key: string, params?: TranslationParams): string => {
+        const text: string = translations[language][key as TranslationKeys] ?? key;
+        if (!params) return text;
+        return Object.entries(params).reduce(
+            (result, [name, value]) => result.split(`{${name}}`).join(String(value)),
+            text,
+        );
     };
 
     return (
